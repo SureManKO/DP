@@ -17,7 +17,7 @@ import spring.dp.util.AccountValidator;
 import javax.validation.Valid;
 import java.util.Map;
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -54,6 +54,7 @@ public class AuthController {
         String token = jwtUtil.generateToken(account.getUsername());
         return Map.of("jwt-token", token);
     }
+
 
     @PostMapping("/login")
     public Map<String, String> performLogin(@RequestBody AuthenticationDTO authenticationDTO) {

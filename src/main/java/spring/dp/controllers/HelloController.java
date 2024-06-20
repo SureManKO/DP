@@ -8,17 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import spring.dp.security.AccountDetails;
-import spring.dp.services. AdminService;
 
 
 @RestController
 public class HelloController {
-    private final AdminService adminService;
 
-    @Autowired
-    public HelloController(AdminService adminService) {
-        this.adminService = adminService;
-    }
 
     @GetMapping("/hello")
     public String sayHello() {
@@ -34,9 +28,4 @@ public class HelloController {
         return accountDetails.getUsername();
     }
 
-    @GetMapping("/admin")
-    public String adminPage() {
-        adminService.doAdminStuff();
-        return "admin";
-    }
 }
